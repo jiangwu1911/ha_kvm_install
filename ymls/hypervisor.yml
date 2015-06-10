@@ -1,0 +1,12 @@
+- name: Config KVM hypervisor
+  hosts: all
+  tasks:
+    - name: install hypervisor
+      yum: pkg={{item}} state=installed
+      with_items:
+        - kvm 
+        - libvirt 
+        - qemu-system-x86
+        - qemu-kvm 
+        - bridge-utils 
+        - virt-install 
