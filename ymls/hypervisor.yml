@@ -10,3 +10,11 @@
         - qemu-kvm 
         - bridge-utils 
         - virt-install 
+
+    - name: copy add_br0.sh
+      copy: src=../scripts/add_br0.sh dest=/root/ha/add_br0.sh
+
+    - name: add br0
+      shell: >
+        sh /root/ha/add_br0.sh;
+        systemctl restart network
