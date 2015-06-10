@@ -1,0 +1,10 @@
+- name: Install pacemaker
+  hosts: all
+  tasks:
+    - name: install pacemaker
+      yum: pkg={{item}} state=installed
+      with_items:
+        - pacemaker 
+        - corosync 
+        - pcs 
+        - resource-agents
